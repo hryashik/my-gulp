@@ -1,0 +1,24 @@
+// FONTS
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&family=Raleway:wght@400;700&display=swap');
+
+$opensans: 'Open Sans', sans-serif;
+$raleway: 'Raleway', sans-serif;
+@mixin contain($a) {
+    max-width: $a;
+    margin: 0 auto;
+}
+*, ul, li {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: grey;
+}
+
+.container {
+    @include contain(1170px)
+}
+.header__inner {
+    display: flex;
+}
