@@ -6,10 +6,12 @@ let path = {
         html: src_folder + '/index.html',
         allhtml: src_folder + '/**/*.html',
         css: src_folder + '/css/*.scss',
+        js: src_folder + '/scripts/*.js'
     },
     dist: {
         html: dist_folder + '/',
         css: dist_folder + '/css',
+        js: dist_folder + '/scripts'
     }
 }
 
@@ -52,10 +54,15 @@ function css() {
         .pipe(dest(path.dist.css))
         .pipe(browsersync.stream())
 }
+function js() {
+    return src(path.src.js)
+        .pipe(dest(path.dist.js));
+}
 
 function watchFiles() {
     gulp.watch(path.src.allhtml, {ignoreInitial: false}, html);
     gulp.watch(path.src.css, css);
+    gulp.watch(path.src.js, js)
 
 }
 

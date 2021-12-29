@@ -1,24 +1,358 @@
 // FONTS
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&family=Raleway:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cardo:ital@1&family=Open+Sans:wght@700&family=Raleway:wght@400;700&display=swap");
 
-$opensans: 'Open Sans', sans-serif;
-$raleway: 'Raleway', sans-serif;
+$opensans: "Open Sans";
+$raleway: "Raleway";
+$cardo: "Cardo";
 @mixin contain($a) {
-    max-width: $a;
-    margin: 0 auto;
-}
-*, ul, li {
-    padding: 0;
-    margin: 0;
+  max-width: $a;
+  margin: 0 auto;
 }
 
-body {
-    background-color: grey;
+*,
+ul,
+li,
+img,
+::before,
+::after,
+:visited {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: inherit;
 }
-
 .container {
-    @include contain(1170px)
+  @include contain(1170px);
 }
-.header__inner {
+.header {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  padding: 36px 0;
+  z-index: 10;
+  &__inner {
     display: flex;
+    justify-content: space-between;
+    color: rgba(255, 255, 255, 0.753);
+    font-family: $raleway;
+    font-weight: 700;
+    font-size: 13px;
+    padding-bottom: 36px;
+    border-bottom: 1px solid gray;
+  }
+  &__menu {
+    display: flex;
+    align-items: center;
+  }
+  &__link {
+    margin-left: 50px;
+    text-transform: uppercase;
+    transition: 0.2s;
+    &:hover {
+      color: #e84545;
+      transition: 0.2s;
+    }
+  }
+}
+.first-slide {
+  margin-bottom: 110px;
+  height: 750px;
+  position: relative;
+  z-index: 1;
+  background: url(../assets/images/slide1.jpg);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  &-container {
+    @include contain(940px);
+  }
+  &__inner {
+    padding-top: 100px;
+    color: rgba(255, 255, 255, 0.822);
+    text-align: center;
+  }
+  &__title {
+    padding-bottom: 40px;
+    font-family: $opensans;
+    font-weight: 700;
+    font-size: 65px;
+    text-transform: uppercase;
+    line-height: 0.9;
+  }
+  &__subtitle {
+    padding-bottom: 75px;
+    font-family: $raleway;
+    font-weight: 400;
+    font-size: 22px;
+  }
+  &__button {
+    padding: 15px 35px;
+    background-color: #e84545;
+    border-radius: 3px;
+    font-family: $raleway;
+    text-transform: uppercase;
+    font-size: 13px;
+    &:hover {
+      background-color: #be3838;
+      transition: 0.3s;
+    }
+  }
+}
+.features .container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.features-item {
+  width: 33.3%;
+  padding: 0 35px;
+  text-align: center;
+  padding-bottom: 65px;
+  &__title {
+    margin: 30px 0;
+    font-family: $raleway;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+  &__text {
+    font-family: $raleway;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+}
+
+.works {
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 100px;
+  &__item {
+    position: relative;
+    width: 25%;
+    height: 350px;
+    overflow: hidden;
+  }
+  &__img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    transform: translate3d(-50%, -50%, 0);
+  }
+  &__content {
+    background-color: #e84545;
+    height: inherit;
+    z-index: 5;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    opacity: 0;
+    transition: 0.3s;
+    &:hover {
+      opacity: 80%;
+    }
+  }
+  &__title {
+    font-family: 700;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+}
+
+.our-team {
+  padding-bottom: 100px;
+  .container {
+    display: flex;
+  }
+  &__card {
+    width: 25%;
+    margin-right: 20px;
+  }
+  &__photo {
+    margin-bottom: 30px;
+  }
+  &__name {
+    font-family: $raleway;
+    font-weight: 400;
+    font-size: 22px;
+    margin-bottom: 5px;
+  }
+  &__position {
+    font-family: $raleway;
+    font-weight: 400;
+    font-size: 13px;
+    color: red;
+  }
+  &__text {
+    font-family: $raleway;
+    font-weight: 400;
+    font-size: 14px;
+    margin: 15px 0;
+    color: rgba(0, 0, 0, 0.548);
+  }
+  &__icons {
+    display: flex;
+    &__logo {
+      border: 1px solid rgba(128, 128, 128, 0.445);
+      margin-right: 5px;
+      width: 40px;
+      height: 40px;
+    }
+    &__logo:first-child {
+      background: url(../assets/our-team/logo-fb.png) no-repeat center;
+    }
+    &__logo:nth-child(2) {
+      background: url(../assets/our-team/logo-tw.png) no-repeat center;
+    }
+    &__logo:nth-child(3) {
+      background: url(../assets/our-team/logo-in.png) no-repeat center;
+    }
+  }
+}
+
+.testimonials {
+  display: flex;
+  &__item {
+    width: 50%;
+    height: 500px;
+    h4 {
+      width: 70%;
+      font-weight: 400;
+      margin-bottom: 20px;
+    }
+    p {
+      font-family: $raleway;
+      font-size: 13px;
+      font-weight: 700;
+    }
+  }
+  &__item:first-child {
+    background: url(../assets/testimonials/1.jpg);
+    background-size: cover;
+    background-position: center;
+  }
+  &__item:last-child {
+    background-color: #53354a;
+    padding: 0 70px;
+    font-family: $cardo;
+    font-size: 36px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  .slide {
+    display: flex;
+    justify-content: flex-start;
+    width: 200px;
+    &-check {
+      width: 13px;
+      height: 13px;
+      background-color: rgb(255, 255, 255);
+      opacity: .2;
+      margin: 15px 10px 0 0;
+      border-radius: 100%;
+      &:first-child {
+        opacity: 0.6;
+      }
+      &:hover {
+        opacity: .6;
+        transition: .3s;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .features-item {
+    width: 50%;
+  }
+  .header__menu {
+    flex-wrap: wrap;
+  }
+  .header__link {
+    width: 33.3%;
+    margin: 0;
+    padding: 3px 0;
+  }
+  .header__inner {
+    align-items: center;
+  }
+  .works__item {
+    width: 33.3%;
+    &:last-child {
+      width: 66.6%;
+    }
+  }
+  .our-team {
+    .container {
+      flex-wrap: wrap;
+    }
+    &__card {
+      width: 47%;
+    }
+    &__text {
+      max-width: 50%;
+    }
+    &__icons {
+      margin-bottom: 20px;
+    }
+  }
+  .testimonials {
+    &__item {
+      & h4 {
+        font-size: 28px;
+        width: 100%;
+      }
+    }
+  }
+}
+@media (max-width: 600px) {
+  .first-slide-container {
+    @include contain(400px);
+  }
+  .header__inner {
+    justify-content: center;
+  }
+  .features-item {
+    width: 100%;
+  }
+  .header__menu {
+    display: none;
+  }
+  .works__item {
+    width: 50%;
+    &:nth-child(7) {
+      width: 100%;
+    }
+    &:nth-child(8) {
+      width: 100%;
+    }
+  }
+  .our-team__card {
+    width: 100%;
+  }
+  .testimonials {
+    &__item {
+      padding: 0;
+      &:last-child {
+        padding: 10px;
+      }
+      & h4 {
+        font-size: 20px;
+        width: 100%;
+        padding: 0;
+      }
+    }
+  }
 }
